@@ -53,3 +53,39 @@ h2 {
 p {
   margin: 0;
 }
+
+/** ---SKIP LINK---*/
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: #0f172a; /* Dostosuj do palety kolorów swojego portfela */
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: top 0.2s ease-in-out;
+
+  &:focus,
+  &:focus-visible {
+    top: 0;
+    outline: 3px solid #3b82f6; /* Wyraźny outline dla dostępności */
+    outline-offset: 2px;
+  }
+}
+/* ---Utility class for visually hiding content while maintaining accessibility.*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
