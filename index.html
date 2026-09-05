@@ -1,26 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/MB-Favicon.svg" type="image/svg+xml" />
+  <!-- SEO: Title and meta description -->
   <title>Mateusz Błachucki | Front-end Developer Portfolio</title>
   <meta name="description" content="Front-end Developer Portfolio – projects, skills, and contact." />
+  <meta name="author" content="Mateusz Błachucki" />
+  <!-- SEO: Robots indexing directive -->
+  <meta name="robots" content="index, follow" />
+  <!-- Theme: Color scheme for dark and light modes -->
+  <meta name="color-scheme" content="light dark" />
+  <!-- Theme: Browser UI color -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f2937" />
   <!-- TODO: Replace with the address to be used after the site is deployed -->
   <link rel="canonical" href="https://..." />
-  <!-- Open Graph (Facebook, LinkedIn, Discord itp.) -->
-  <meta property="og:title" content="Mateusz Błachucki | Portfolio Front-end Developer" />
+  <link rel="icon" href="/MB-Favicon.svg" type="image/svg+xml" />
+  <!-- Web App Manifest (PWA Standard) -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <!-- iOS / Apple Mobile Web App Fallback -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="MB Portfolio" />
+  <!-- TODO: Add PNG icon (e.g. 180x180) for iOS Home Screen -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> -->
+  <!--Preconnect to font resources  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!--TODO: Add a link to Google Fonts. -->
+  <!-- Open Graph (Facebook, LinkedIn, Discord.) -->
+  <meta property="og:title" content="Mateusz Błachucki | Front-end Developer Portfolio" />
   <meta property="og:description" content="Front-end Developer Portfolio – projects, skills, and contact." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
   <!--TODO:Image and address section – add the appropriate image and social media sharing link for Open Graph and Twitter Cards.  -->
   <meta property="og:url" content="https://.../" />
   <meta property="og:image" content="" />
+  <!--TODO: Should be inserted after populating og:image: -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
   <!-- Twitter Cards (X) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mateusz Błachucki | Front-end Developer Portfolio" />
   <meta name="twitter:description" content="Front-end Developer Portfolio – projects, skills, and contact." />
+  <!--TODO: Add the appropriate image for Twitter Cards. -->
   <meta name="twitter:image" content="https://..." />
+  <!--TODO: Create a profile on X and fill in the content of the row; otherwise, delete the row. -->
+  <meta name="twitter:creator" content="@your_handle" />
+  <!--TODO: Complete the Structured Data (JSON-LD) profile. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mateusz Błachucki",
+    "jobTitle": "Front-end Developer",
+    "url": "https://...",
+    "sameAs": [
+      "https://github.com/Maqel",
+      "https://www.linkedin.com/in/blachucki/"
+    ],
+    "knowsAbout": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Sass",
+      "Responsive Web Design",
+      "Accessibility (a11y)"
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -128,7 +180,8 @@
         <div class="projects__content">
           <article class="project-card">
             <figure class="project-card__image">
-              <img src="/src/assets/test-img.webp" alt="Preview of Project 1 dashboard" loading="lazy" decoding="async" width="600" height="335">
+              <img src="/src/assets/test-img.webp" alt="Preview of Project 1 dashboard" loading="lazy" decoding="async"
+                width="600" height="335">
             </figure>
             <div class="project-card__content">
               <h3 class="project-card__title">
@@ -152,7 +205,8 @@
           </article>
           <article class="project-card">
             <figure class="project-card__image">
-              <img src="/src/assets/test-img.webp" alt="Preview of Project 2 dashboard" loading="lazy" decoding="async" width="600" height="335">
+              <img src="/src/assets/test-img.webp" alt="Preview of Project 2 dashboard" loading="lazy" decoding="async"
+                width="600" height="335">
             </figure>
             <div class="project-card__content">
               <h3 class="project-card__title">
@@ -175,7 +229,8 @@
           </article>
           <article class="project-card">
             <figure class="project-card__image">
-              <img src="/src/assets/test-img.webp" alt="Preview of Project 3 dashboard" loading="lazy" decoding="async" width="600" height="335">
+              <img src="/src/assets/test-img.webp" alt="Preview of Project 3 dashboard" loading="lazy" decoding="async"
+                width="600" height="335">
             </figure>
             <div class="project-card__content">
               <h3 class="project-card__title">
@@ -198,7 +253,8 @@
           </article>
           <article class="project-card">
             <figure class="project-card__image">
-              <img src="/src/assets/test-img.webp" alt="Preview of Project 4 dashboard" loading="lazy" decoding="async" width="600" height="335">
+              <img src="/src/assets/test-img.webp" alt="Preview of Project 4 dashboard" loading="lazy" decoding="async"
+                width="600" height="335">
             </figure>
             <div class="project-card__content">
               <h3 class="project-card__title">
