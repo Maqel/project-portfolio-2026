@@ -18,6 +18,42 @@
   <!-- TODO: Replace with the address to be used after the site is deployed -->
   <link rel="canonical" href="https://..." />
   <link rel="icon" href="/MB-Favicon.svg" type="image/svg+xml" />
+  <!-- Analytics: Google Analytics 4 (GA4) with Google Consent Mode v2 -->
+  <script>
+    // Define dataLayer and gtag function
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Default consent mode: Deny storage until user grants permission via consent banner
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'wait_for_update': 500
+    });
+
+    // Localhost check (disable tracking in dev)
+    const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.protocol === 'file:';
+    if (isLocalhost) {
+      window['ga-disable-G-MEASUREMENT_ID'] = true;
+      console.info('[Analytics] Tracking disabled on local environment.');
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-MEASUREMENT_ID', { send_page_view: true });
+  </script>
+  <!-- Analytics: Google Analytics 4 (GA4) with Google Consent Mode v2 -->
+  <!-- 
+    TODO [Analytics Deployment Checklist]:
+    1. Create a GA4 property on https://analytics.google.com and obtain the Measurement ID (G-XXXXXXXXXX).
+    2. Replace all occurrences of 'G-MEASUREMENT_ID' with your actual Measurement ID.
+    3. [JS Phase] Connect #consent-banner buttons to update consent state:
+       - Accept:  gtag('consent', 'update', { 'analytics_storage': 'granted' });
+       - Decline: gtag('consent', 'update', { 'analytics_storage': 'denied' });
+       - Persist decision in localStorage.
+    4. [JS/HTML Phase] Add a "Cookie Settings" trigger in <footer> to allow users to withdraw/modify consent (GDPR requirement).
+  -->
   <!-- Web App Manifest (PWA Standard) -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -366,6 +402,25 @@
       <p class="site-footer__copyright">&copy; 2026 Mateusz Błachucki. All rights reserved.</p>
     </div>
   </footer>
+  <!-- Modal: Cookie & Privacy Consent Banner -->
+  <!-- 
+    TODO [Consent Modal / JS]:
+    1. Show modal using dialog.showModal() or dialog.show() if no consent in localStorage.
+    2. Handle button clicks to update Google Consent Mode state.
+    3. Save user preference in localStorage to prevent showing banner on subsequent visits.
+  -->
+  <dialog class="consent-banner" id="consent-banner" aria-labelledby="consent-title" aria-describedby="consent-desc">
+    <div class="consent-banner__content">
+      <h2 class="consent-banner__title" id="consent-title">Cookie & Privacy Preferences</h2>
+      <p class="consent-banner__desc" id="consent-desc">
+        This site uses cookies and analytics to improve user experience and analyze traffic. You can choose whether to accept performance cookies.
+      </p>
+      <div class="consent-banner__actions">
+        <button type="button" class="btn btn--secondary" id="consent-decline-btn">Decline</button>
+        <button type="button" class="btn btn--primary" id="consent-accept-btn">Accept</button>
+      </div>
+    </div>
+  </dialog>
   <script type="module" src="/src/main.js"></script>
 </body>
 
