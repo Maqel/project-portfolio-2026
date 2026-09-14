@@ -1,114 +1,111 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
+	--text: #6b6375;
+	--text-h: #08060d;
+	--bg: #fff;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+	--sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+	--mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+	font: 18px/145% var(--sans);
+	letter-spacing: 0.18px;
+	color-scheme: light dark;
+	color: var(--text);
+	background: var(--bg);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-
-
 body {
-  margin: 0;
+	margin: 0;
 }
 
 h1,
 h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+	font-family: var(--heading);
+	font-weight: 500;
+	color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+	font-size: 56px;
+	letter-spacing: -1.68px;
+	margin: 32px 0;
+	@media (max-width: 1024px) {
+		font-size: 36px;
+		margin: 20px 0;
+	}
 }
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+	font-size: 24px;
+	line-height: 118%;
+	letter-spacing: -0.24px;
+	margin: 0 0 8px;
+	@media (max-width: 1024px) {
+		font-size: 20px;
+	}
 }
 p {
-  margin: 0;
+	margin: 0;
 }
 
 /** ---SKIP LINK---*/
 
 .skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  z-index: 9999;
-  padding: 0.75rem 1.25rem;
-  background-color: #0f172a; /* Dostosuj do palety kolorów swojego portfela */
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 0 0 0.5rem 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: top 0.2s ease-in-out;
+	position: absolute;
+	top: -100%;
+	left: 1rem;
+	z-index: 9999;
+	padding: 0.75rem 1.25rem;
+	background-color: #0f172a; /* Dostosuj do palety kolorów swojego portfela */
+	color: #ffffff;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 0 0 0.5rem 0.5rem;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	transition: top 0.2s ease-in-out;
 
-  &:focus,
-  &:focus-visible {
-    top: 0;
-    outline: 3px solid #3b82f6; /* Wyraźny outline dla dostępności */
-    outline-offset: 2px;
-  }
+	&:focus,
+	&:focus-visible {
+		top: 0;
+		outline: 3px solid #3b82f6; /* Wyraźny outline dla dostępności */
+		outline-offset: 2px;
+	}
 }
 /* ---Utility class for visually hiding content while maintaining accessibility.*/
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 .consent-banner {
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: var(--radius-md, 8px);
-  padding: var(--spacing-lg, 1.5rem);
-  max-width: min(90vw, 480px);
-  background-color: var(--color-surface, #ffffff);
-  color: var(--color-text, #1e293b);
-  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+	border: 1px solid var(--color-border, #e2e8f0);
+	border-radius: var(--radius-md, 8px);
+	padding: var(--spacing-lg, 1.5rem);
+	max-width: min(90vw, 480px);
+	background-color: var(--color-surface, #ffffff);
+	color: var(--color-text, #1e293b);
+	box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
 }
 
 /* Modal backdrop when opened via showModal() */
 .consent-banner::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(2px);
 }
 
 .consent-banner__actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--spacing-sm, 0.75rem);
-  margin-top: var(--spacing-md, 1rem);
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--spacing-sm, 0.75rem);
+	margin-top: var(--spacing-md, 1rem);
 }
