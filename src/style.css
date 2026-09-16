@@ -1,32 +1,99 @@
-:root {
-	--text: #6b6375;
-	--text-h: #08060d;
-	--bg: #fff;
 
+@property --bg-top {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: oklch(0.99 0.003 70);
+}
+@property --bg-bottom {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: oklch(0.96 0.012 55);
+}
+@property --accent-glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: oklch(0.67 0.21 38.5 / 0.18);
+}
+@property --text-main {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: oklch(0.2 0.02 50);
+}
+
+:root {
+/* fonts */
 	--font-google-sans: "Google Sans", sans-serif;
   --font-slabo: "Slabo 13px", serif;
   --font-momo: "Momo Trust Display", sans-serif;
 
-	font: 18px/145% var(--sans);
-	letter-spacing: 0.18px;
-	color-scheme: light dark;
-	color: var(--text);
-	background: var(--bg);
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+/* font color for a light background */
+--text: oklch(0.48 0.03 305);
+  --text-h: oklch(0.12 0.02 300);
+
+	/* light gradient background  */
+	--bg-top: oklch(1 0 0);
+  --bg-bottom: oklch(0.97 0.01 55);
+  --accent-glow: oklch(0.67 0.21 38.5 / 0.15);
+	--text-main: oklch(0.18 0.02 50);
+  --border-color: oklch(0.88 0.01 60);
+
+  color-scheme: light dark;
+}
+/* dark mode*/
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* font color for a dark background */
+  --text: oklch(0.72 0.02 300);
+  --text-h: oklch(0.96 0.01 300);
+
+  /* Dark gradient background */
+  --bg-top: oklch(0.14 0.008 50);
+  --bg-bottom: oklch(0.18 0.018 42);
+  --accent-glow: oklch(0.67 0.21 38.5 / 0.35);
+	--text-main: oklch(0.95 0.005 70);
+  --border-color: oklch(0.28 0.01 50);
+}
+
+html {
+  font: 18px/145% var(--font-google-sans);
+  letter-spacing: 0.18px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
 	margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+
+/* Background structure: Fixed accent at the bottom + smooth base gradient */
+	background-image: 
+    radial-gradient(120% 65% at 50% 100% in oklch, var(--accent-glow) 0%, oklch(0.67 0.21 38.5 / 0) 70%),
+    linear-gradient(180deg in oklch, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-attachment: fixed;
+
+	transition: 
+    --bg-top 0.5s ease,
+    --bg-bottom 0.5s ease,
+    --accent-glow 0.5s ease,
+    --text 0.5s ease,
+    --text-h 0.5s ease,
+    color 0.5 s ease;
 }
 
 h1,
-h2 {
-	font-family: var(--heading);
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-google-sans);
 	font-weight: 500;
 	color: var(--text-h);
+	transition: color 0.5s ease;
 }
 
 h1 {
@@ -47,9 +114,60 @@ h2 {
 		font-size: 20px;
 	}
 }
-p {
-	margin: 0;
+
+.header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.5s ease;
 }
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s, border-color 0.5s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  background-color: oklch(0.5 0 0 / 0.08);
+}
+
+/* Dynamic icon visibility switching */
+.theme-toggle__icon--sun { display: none; }
+.theme-toggle__icon--moon { display: block; }
+
+[data-theme="dark"] .theme-toggle__icon--sun { display: block; }
+[data-theme="dark"] .theme-toggle__icon--moon { display: none; }
+
+/* The wheel effect for the View Transitions API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Preventing animation when prefers-reduced-motion is enabled */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) {
+    animation: none !important;
+  }
+}
+
 
 /** ---SKIP LINK---*/
 
@@ -59,7 +177,7 @@ p {
 	left: 1rem;
 	z-index: 9999;
 	padding: 0.75rem 1.25rem;
-	background-color: #0f172a; /* Dostosuj do palety kolorów swojego portfela */
+	background-color: #0f172a; /* Dostosuj do palety kolorów */
 	color: #ffffff;
 	font-weight: 600;
 	text-decoration: none;
@@ -74,6 +192,7 @@ p {
 		outline-offset: 2px;
 	}
 }
+
 /* ---Utility class for visually hiding content while maintaining accessibility.*/
 .sr-only {
 	position: absolute;

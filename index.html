@@ -59,6 +59,15 @@
        - Persist decision in localStorage.
     4. [JS/HTML Phase] Add a "Cookie Settings" trigger in <footer> to allow users to withdraw/modify consent (GDPR requirement).
   -->
+  <!-- Theme: Anti-FOUC -->
+      <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <!-- Web App Manifest (PWA Standard) -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -159,7 +168,7 @@
           </li>
         </ul>
       </nav>
-      <button id="theme-toggle" class="site-header__theme-toggle" type="button" aria-label="Toggle dark/light theme">
+      <button id="theme-toggle" class="site-header__theme-toggle" type="button" aria-label="Toggle dark/light theme" aria-live="polite">
         <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round" aria-hidden="true">
