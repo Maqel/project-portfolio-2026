@@ -3,9 +3,9 @@
 	--text-h: #08060d;
 	--bg: #fff;
 
-	--sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-	--heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-	--mono: ui-monospace, Consolas, monospace;
+	--font-google-sans: "Google Sans", sans-serif;
+  --font-slabo: "Slabo 13px", serif;
+  --font-momo: "Momo Trust Display", sans-serif;
 
 	font: 18px/145% var(--sans);
 	letter-spacing: 0.18px;
