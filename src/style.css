@@ -57,6 +57,8 @@
 html {
 	min-height: 100vh;
   scrollbar-gutter: stable;
+	scroll-behavior: smooth;
+  scroll-padding-top: 30px;
   font: 18px/145% var(--font-google-sans);
   letter-spacing: 0.18px;
   font-synthesis: none;
@@ -116,21 +118,7 @@ h2 {
 	}
 }
 
-.header {
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border-color);
-  transition: border-color 0.5s ease;
-}
-
-.header__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.theme-toggle {
+.site-header__theme-toggle {
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-main);
@@ -143,7 +131,7 @@ h2 {
   transition: background-color 0.2s, transform 0.2s, border-color 0.5s;
 }
 
-.theme-toggle:hover {
+.site-header__theme-toggle:hover {
   transform: scale(1.08);
   background-color: oklch(0.5 0 0 / 0.08);
 }
@@ -259,6 +247,13 @@ h2 {
 	margin-top: var(--spacing-md, 1rem);
 }
 
+
+.icon {
+    width: 25px;
+    height: 25px;
+    color: #9696ff;
+}
+
 /* ========================================================================== */
 
 /* --- HEADER --- */
@@ -277,6 +272,18 @@ h2 {
 	a {text-decoration: none;
 	}
 }
+
+.site-header__figure {
+  display: flex;
+  align-items: center;
+	gap: 1rem;
+}
+
+.visually-hidden {
+	color: var(--color-text, #ffffff);
+}
+
+
 
 .site-header__nav ul {
   display: flex;
@@ -298,7 +305,41 @@ h2 {
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
   gap: 4rem;
+	font-family: var(--font-momo);
 }
+
+.hero__eyebrow{
+	color: #38bdf8;            /* Błękitny kolor */
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;       /* Większy odstęp między literami */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero__title {
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	line-height: 1.1;
+}
+
+.hero__name{
+	background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 40%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+	
+}
+
+.hero__subtitle {
+color: #7dd3fc;            /* Jasny, stonowany niebieski */
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+
 
 
 /* --- PROJECTS SECTION --- */
@@ -356,11 +397,11 @@ h2 {
 	gap: 1rem;
 }
 
-skill-card__icon {
+.skill-card__icon {
 	flex: 0 0 auto;
 }
 
-skill-card__title {
+.skill-card__title {
 	flex: 1;
 }
 

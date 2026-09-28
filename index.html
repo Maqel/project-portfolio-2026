@@ -22,7 +22,7 @@
     href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Momo+Trust+Display&family=Slabo+13px&display=swap"
     rel="stylesheet">
   <link rel="canonical" href="https://..." />
-  <link rel="icon" href="/MB-Favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/logo.svg" type="image/svg+xml" />
   <!-- Analytics: Google Analytics 4 (GA4) with Google Consent Mode v2 -->
   <script>
     // Define dataLayer and gtag function
@@ -132,8 +132,12 @@
   <header class="site-header">
     <div class="container site-header__container">
       <!--TODO: Replace with a photo here. -->
-      <a href="#hero" class="site-header__logo" aria-label="Mateusz Błachucki - Home Page">Mateusz
-        Błachucki<span>.</span></a>
+      <a href="#hero" class="site-header__logo" aria-label="Mateusz Błachucki - Home Page">
+  <figure class="site-header__figure">
+    <img src="/logo.webp" alt="Logo Mateusz Błachucki" loading="lazy" decoding="async" width="30" height="30" />
+    <figcaption class="visually-hidden">Mateusz Błachucki</figcaption>
+  </figure>
+</a>
       <nav class="site-header__nav site-header__nav--main" aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
@@ -146,9 +150,9 @@
         <ul>
           <li>
             <a href="https://github.com/Maqel" target="_blank" rel="noopener noreferrer" aria-label="My GitHub profile">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-github"></use>
-              </svg>
+              <svg class="icon" aria-hidden="true">
+        <use href="/icons/sprite.svg#github"></use>
+    </svg>
             </a>
           </li>
           <li>
@@ -196,14 +200,15 @@
     <section id="hero" class="hero" aria-labelledby="hero-heading">
       <div class="container hero__container">
         <div class="hero__text">
-          <h1 id="hero-heading" class="hero__title">Hi, I'm Mateusz Błachucki</h1>
+          <h1 id="hero-heading" class="hero__title"><span class="hero__eyebrow">Hello, I'm 
+          </span></br>Mateusz <span class="hero__name">Błachucki</span></h1>
           <p class="hero__subtitle">Front-end Developer</p>
         </div>
         <div class="hero__image">
           <figure class="hero__image">
-            <img src="/src/assets/test-img.webp" alt="Mateusz Błachucki - Front-end Developer" loading="lazy"
-              decoding="async" width="300" height="300">
-          </figure>
+        <img src="/public/portrait-reverse.webp" alt="Mateusz Błachucki - Front-end Developer" loading="lazy"
+          decoding="async" width="300" height="300" class="hero__img">
+      </figure>
         </div>
       </div>
     </section>
@@ -364,7 +369,7 @@
         </header>
         <ul class="skills__grid">
           <!-- Frontend -->
-          <li class="skill-card" style="--skill-card-from:#5b6cf0; --skill-card-to:#8f5cf6;">
+          <li class="skill-card">
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
