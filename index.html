@@ -60,8 +60,8 @@
     4. [JS/HTML Phase] Add a "Cookie Settings" trigger in <footer> to allow users to withdraw/modify consent (GDPR requirement).
   -->
   <!-- Theme: Anti-FOUC -->
-      <script>
-    (function() {
+  <script>
+    (function () {
       const savedTheme = localStorage.getItem('theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = savedTheme || (systemDark ? 'dark' : 'light');
@@ -133,11 +133,10 @@
     <div class="container site-header__container">
       <!--TODO: Replace with a photo here. -->
       <a href="#hero" class="site-header__logo" aria-label="Mateusz Błachucki - Home Page">
-  <figure class="site-header__figure">
-    <img src="/logo.webp" alt="Logo Mateusz Błachucki" loading="lazy" decoding="async" width="30" height="30" />
-    <figcaption class="visually-hidden">Mateusz Błachucki</figcaption>
-  </figure>
-</a>
+        <svg class="icon" aria-hidden="true">
+          <use href="/icons/sprite.svg#mb"></use>
+        </svg>
+      </a>
       <nav class="site-header__nav site-header__nav--main" aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
@@ -151,45 +150,34 @@
           <li>
             <a href="https://github.com/Maqel" target="_blank" rel="noopener noreferrer" aria-label="My GitHub profile">
               <svg class="icon" aria-hidden="true">
-        <use href="/icons/sprite.svg#github"></use>
-    </svg>
+                <use href="/icons/sprite.svg#github"></use>
+              </svg>
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/blachucki/" target="_blank" rel="noopener noreferrer"
               aria-label="My LinkedIn profile">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-linkedin"></use>
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons/sprite.svg#linkedin"></use>
               </svg>
             </a>
           </li>
           <li>
             <a href="mailto:mateusz.blachucki@gmail.com" aria-label="Send an email to Mateusz Błachucki">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-email"></use>
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons/sprite.svg#email"></use>
               </svg>
             </a>
           </li>
         </ul>
       </nav>
-      <button id="theme-toggle" class="site-header__theme-toggle" type="button" aria-label="Toggle dark/light theme" aria-live="polite">
-        <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
+      <button id="theme-toggle" class="site-header__theme-toggle" type="button" aria-label="Toggle dark/light theme"
+        aria-live="polite">
+        <svg class="icon" aria-hidden="true">
+          <use href="/icons/sprite.svg#sun"></use>
         </svg>
-        <svg class="theme-icon theme-icon--moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        <svg class="icon" aria-hidden="true">
+          <use href="/icons/sprite.svg#moon"></use>
         </svg>
       </button>
     </div>
@@ -200,15 +188,15 @@
     <section id="hero" class="hero" aria-labelledby="hero-heading">
       <div class="container hero__container">
         <div class="hero__text">
-          <h1 id="hero-heading" class="hero__title"><span class="hero__eyebrow">Hello, I'm 
-          </span></br>Mateusz <span class="hero__name">Błachucki</span></h1>
+          <h1 id="hero-heading" class="hero__title"><span class="hero__eyebrow">Hello, I'm
+            </span></br>Mateusz <span class="hero__name">Błachucki</span></h1>
           <p class="hero__subtitle">Front-end Developer</p>
         </div>
         <div class="hero__image">
           <figure class="hero__image">
-        <img src="/public/portrait-reverse.webp" alt="Mateusz Błachucki - Front-end Developer" loading="lazy"
-          decoding="async" width="300" height="300" class="hero__img">
-      </figure>
+            <img src="/public/portrait-reverse.webp" alt="Mateusz Błachucki - Front-end Developer" loading="lazy"
+              decoding="async" width="300" height="300" class="hero__img">
+          </figure>
         </div>
       </div>
     </section>
@@ -243,8 +231,7 @@
         <div class="projects__content">
           <article class="project-card">
             <figure class="project-card__image">
-              <img src="/src/assets/test-img.webp" alt="Preview of Project 1 dashboard" loading="lazy" decoding="async"
-                >
+              <img src="/src/assets/test-img.webp" alt="Preview of Project 1 dashboard" loading="lazy" decoding="async">
             </figure>
             <div class="project-card__content">
               <h3 class="project-card__title">
@@ -259,9 +246,13 @@
                 <li>JavaScript</li>
               </ul>
               <div class="project-card__links">
-                <a href="#" target="_blank" rel="noopener noreferrer">Live Demo <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#eye"></use>
+                  </svg> Live Demo <span class="sr-only">of Project
                     1</span></a>
-                <a href="#" target="_blank" rel="noopener noreferrer">GitHub <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#github"></use>
+                  </svg> GitHub <span class="sr-only">of Project
                     1</span></a>
               </div>
             </div>
@@ -283,9 +274,13 @@
                 <li>CSS</li>
               </ul>
               <div class="project-card__links">
-                <a href="#" target="_blank" rel="noopener noreferrer">Live Demo <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#eye"></use>
+                  </svg> Live Demo <span class="sr-only">of Project
                     2</span></a>
-                <a href="#" target="_blank" rel="noopener noreferrer">GitHub <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#github"></use>
+                  </svg> GitHub <span class="sr-only">of Project
                     2</span></a>
               </div>
             </div>
@@ -307,9 +302,13 @@
                 <li>SCSS</li>
               </ul>
               <div class="project-card__links">
-                <a href="#" target="_blank" rel="noopener noreferrer">Live Demo <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#eye"></use>
+                  </svg> Live Demo <span class="sr-only">of Project
                     3</span></a>
-                <a href="#" target="_blank" rel="noopener noreferrer">GitHub <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#github"></use>
+                  </svg> GitHub <span class="sr-only">of Project
                     3</span></a>
               </div>
             </div>
@@ -331,9 +330,13 @@
                 <li>CSS</li>
               </ul>
               <div class="project-card__links">
-                <a href="#" target="_blank" rel="noopener noreferrer">Live Demo <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#eye"></use>
+                  </svg> Live Demo <span class="sr-only">of Project
                     4</span></a>
-                <a href="#" target="_blank" rel="noopener noreferrer">GitHub <span class="sr-only">of Project
+                <a href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#github"></use>
+                  </svg> GitHub <span class="sr-only">of Project
                     4</span></a>
               </div>
             </div>
@@ -356,8 +359,8 @@
             </p>
           </div>
           <div class="skills__note">
-            <svg class="skills__note-icon" aria-hidden="true" focusable="false" width="28" height="28">
-              <use href="#icon-skills-trend"></use>
+            <svg class="icon" aria-hidden="true">
+              <use href="/icons/sprite.svg#trend-up"></use>
             </svg>
             <div class="skills__note-text">
               <p class="skills__note-label">Developing Skills</p>
@@ -373,8 +376,8 @@
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
-                  <svg width="24" height="24" focusable="false">
-                    <use href="#icon-skills-code"></use>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#code"></use>
                   </svg>
                 </span>
                 <h3 class="skill-card__title">Frontend</h3>
@@ -416,8 +419,8 @@
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
-                  <svg width="24" height="24" focusable="false">
-                    <use href="#icon-skills-tools"></use>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#wrench"></use>
                   </svg>
                 </span>
                 <h3 class="skill-card__title">Development Tools</h3>
@@ -459,8 +462,8 @@
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
-                  <svg width="24" height="24" focusable="false">
-                    <use href="#icon-skills-monitor"></use>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#desktop"></use>
                   </svg>
                 </span>
                 <h3 class="skill-card__title">Web Development</h3>
@@ -503,8 +506,8 @@
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
-                  <svg width="24" height="24" focusable="false">
-                    <use href="#icon-skills-brain"></use>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#brain"></use>
                   </svg>
                 </span>
                 <h3 class="skill-card__title">AI &amp; Productivity</h3>
@@ -543,8 +546,8 @@
             <article class="skill-card__inner">
               <div class="skill-card__top">
                 <span class="skill-card__icon" aria-hidden="true">
-                  <svg width="24" height="24" focusable="false">
-                    <use href="#icon-skills-laptop"></use>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="/icons/sprite.svg#laptop"></use>
                   </svg>
                 </span>
                 <h3 class="skill-card__title">Computer &amp; Research</h3>
@@ -625,23 +628,23 @@
         <ul>
           <li>
             <a href="https://github.com/Maqel" target="_blank" rel="noopener noreferrer" aria-label="My GitHub profile">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-github"></use>
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons/sprite.svg#github"></use>
               </svg>
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/blachucki/" target="_blank" rel="noopener noreferrer"
               aria-label="My LinkedIn profile">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-linkedin"></use>
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons/sprite.svg#linkedin"></use>
               </svg>
             </a>
           </li>
           <li>
             <a href="mailto:mateusz.blachucki@gmail.com" aria-label="Send an email to Mateusz Błachucki">
-              <svg class="social-icon" width="20" height="20" aria-hidden="true">
-                <use href="/media-icons.svg#icon-email"></use>
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons/sprite.svg#email"></use>
               </svg>
             </a>
           </li>
